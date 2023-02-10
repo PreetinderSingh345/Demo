@@ -8,8 +8,6 @@ env:
   DOCKER_IMAGE: preetindersingh/github-actions
 jobs:
   build-and-deploy:
-jobs:
-  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
