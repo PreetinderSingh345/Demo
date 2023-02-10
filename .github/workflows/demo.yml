@@ -7,7 +7,7 @@ on:
 
 env:
   DOCKER_REGISTRY: ghcr.io
-  DOCKER_IMAGE: Demo/demo-image
+  DOCKER_IMAGE: demo/demo-image
 
 jobs:
   build-and-deploy:
