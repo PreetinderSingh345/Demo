@@ -5,7 +5,7 @@ on:
       - main
 env:
   DOCKER_REGISTRY: ghcr.io
-  DOCKER_IMAGE: demo/demo-image
+  DOCKER_IMAGE: Package/demo-image
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
