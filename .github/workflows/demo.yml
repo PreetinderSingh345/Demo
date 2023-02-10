@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+env:
+  IMAGE_TAG: ${{ env.GITHUB_SHA }}
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -27,3 +30,14 @@ jobs:
     - name: Run tests
       run: |
         npm run test
+        - name: Build Docker image
+      run: |
+        docker build -t myimage .
+    - name: Tag Docker image
+      run: |
+        docker tag myimage ghcr.io/myusername/myrepo:${{ env.IMAGE_TAG }}
+
+    - name: Push Docker image
+      uses: docker/push-action@v1
+      with:
+        tags: ghcr.io/myusername/myrepo:${{ env.IMAGE_TAG }}
