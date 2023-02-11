@@ -6,9 +6,7 @@ on:
       - main
 env:
   REGISTRY: ghcr.io
-  TAG: image-name
-  USER: preetindersingh345
-  PAT: ${{secrets.GITHUB_TOKEN}}
+  IMAGE_NAME: image-name
 
 jobs:
   build-and-deploy:
@@ -35,4 +33,4 @@ jobs:
 
     - name: Build Docker image
       run: |
-        docker build -t ${{TAG}}
+        docker build -t ${{env.IMAGE_NAME}}
