@@ -8,7 +8,7 @@ env:
   REGISTRY: ghcr.io
   USER: preetindersingh345
   IMAGE_NAME: image-name
-  TAG: ${{github.sha}}
+  TAG: latest
   PAT: ${{secrets.GITHUB_TOKEN}}
 
 jobs:
@@ -38,6 +38,6 @@ jobs:
         docker build -t ${{env.IMAGE_NAME}} .
     - name: Login to GHCR
       run: |
-        echo ${{env.PAT}} | docker login ghcr.io -u ${{env.USER}} --password-stdin
+        echo ${{env.PAT}} | docker login ${{env.REGISTRY}} -u ${{env.USER}} --password-stdin
         docker tag ${{env.IMAGE_NAME}} ${{env.REGISTRY}}/${{env.USER}}/${{env.IMAGE_NAME}}:${{env.TAG}}
-        docker push ${{env.REGISTRY}}//${{env.USER}}/${{env.IMAGE_NAME}}
+        docker push ${{env.REGISTRY}}//${{env.USER}}/${{env.IMAGE_NAME}}:${{env.TAG}}
