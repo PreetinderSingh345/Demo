@@ -1,6 +1,6 @@
-const {add} = require('./index');
+const {multiply} = require('./index');
 
-test('should return 3 when we add 1 and 2', () => {
-  const result = add(1, 2);
-  expect(result).toBe(3);
+test('should return 12, when we multiply 3 and 4', () => {
+  const result = multiply(3, 4);
+  expect(result).toBe(12);
 });
