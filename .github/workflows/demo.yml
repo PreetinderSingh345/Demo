@@ -6,7 +6,7 @@ on:
       - main
 
 env: 
-  IMAGE_NAME: ghcr.io/preetindersingh345/demo:latest
+  IMAGE_NAME: ghcr.io/preetindersingh345/Demo/docker-image:latest
 
 jobs:
   build-and-deploy:
