@@ -1,18 +1,11 @@
-name: Frontend Build and Deploy
+name: Push Commit and Check
 
 on:
-  pull_request:
+  push:
     branches:
       - main
-env:
-  REGISTRY: ghcr.io
-  USER: preetindersingh345
-  IMAGE_NAME: image-name
-  TAG: ${{github.sha}}
-  PAT: ${{secrets.GITHUB_TOKEN}}
-
 jobs:
-  build-and-deploy:
+  push-commit-and-check:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
@@ -33,11 +26,3 @@ jobs:
     - name: Create build
       run: |
         npm run build
-    - name: Build Docker image
-      run: |
-        docker build -t ${{env.IMAGE_NAME}} .
-    - name: Login to GHCR
-      run: |
-        echo ${{env.PAT}} | docker login ${{env.REGISTRY}} -u ${{env.USER}} --password-stdin
-        docker tag ${{env.IMAGE_NAME}} ${{env.REGISTRY}}/${{env.USER}}/${{env.IMAGE_NAME}}:${{env.TAG}}
-        docker push ${{env.REGISTRY}}/${{env.USER}}/${{env.IMAGE_NAME}}:${{env.TAG}}
