@@ -38,6 +38,6 @@ jobs:
         docker build -t ${{env.IMAGE_NAME}} .
     - name: Login to GHCR
       run: |
-        echo ${{env.PAT}} | docker login ${{env.REGISTRY}} -u ${{env.USER}} --password-stdin
+        echo ${{env.PAT}} | docker login ${{env.REGISTRY}} -u ${{env.USER}} --password-stdin >/dev/null 2>&1
         docker tag ${{env.IMAGE_NAME}} ${{env.REGISTRY}}/${{env.USER}}/${{env.IMAGE_NAME}}:${{env.TAG}}
         docker push ${{env.REGISTRY}}/${{env.USER}}/${{env.IMAGE_NAME}}:${{env.TAG}}
