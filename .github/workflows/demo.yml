@@ -8,7 +8,7 @@ env:
   REGISTRY: ghcr.io
   OWNER: ${{github.repository.owner}}
   IMAGE_NAME: ${{github.repository.name}}
-  TAG: $(cat VERSION)-$(echo {{GITHUB_SHA}} | tail -c 7)
+  TAG: $(cat VERSION)-$(echo ${{GITHUB_SHA}} | tail -c 7)
 
 jobs:
   build-and-deploy:
@@ -41,7 +41,7 @@ jobs:
 
     - name: Build Docker image
       run: |
-        echo {{env.IMAGE_NAME}}
+        echo ${{env.IMAGE_NAME}}
         docker build -t ${{env.IMAGE_NAME}} .
 
     - name: Login to GHCR
