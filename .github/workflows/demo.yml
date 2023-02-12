@@ -8,7 +8,7 @@ env:
   REGISTRY: ghcr.io
   OWNER: ${{github.repository.owner}}
   IMAGE_NAME: ${{github.repository.name}}
-  TAG: $(cat VERSION)-$(echo ${{env.GITHUB_SHA}} | tail -c 7)
+  TAG: $(cat VERSION)-${{env.GITHUB_SHA | tail -c 7}}
 
 jobs:
   build-and-deploy:
