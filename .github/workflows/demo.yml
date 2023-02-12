@@ -7,7 +7,7 @@ on:
 env:
   REGISTRY: ghcr.io
   OWNER: $(echo ${{github.repository}} | cut -d'/' -f1)
-  IMAGE_NAME: $ (echo ${{github.repository}} | cut -d'/' -f2)
+  IMAGE_NAME: $(echo ${{github.repository}} | cut -d'/' -f2)
   TAG: $(cat VERSION)-$(echo ${{github.sha}} | tail -c 7)
 
 jobs:
