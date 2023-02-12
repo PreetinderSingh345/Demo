@@ -41,7 +41,7 @@ jobs:
 
     - name: Build Docker image
       run: |
-        echo ${{github.repository.name}}
+        echo ${{github.repository}}
         docker build -t ${{env.IMAGE_NAME}} .
 
     - name: Login to GHCR
