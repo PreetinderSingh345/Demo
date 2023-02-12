@@ -6,7 +6,7 @@ on:
       - main
 env:
   REGISTRY: ghcr.io
-  OWNER: ${{github.repository.owner}
+  OWNER: ${{github.repository.owner}}
   IMAGE_NAME: ${{github.repository.name}}
   TAG: $(cat VERSION)-$(echo ${{env.GITHUB_SHA}} | cut -c -7)
 
