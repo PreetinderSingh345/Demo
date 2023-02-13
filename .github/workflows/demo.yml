@@ -3,7 +3,7 @@ name: Frontend Build and Deploy
 on:
   push:
     branches:
-      - main
+      - main 
 env:
   REGISTRY: ghcr.io
   OWNER: $(echo ${{github.repository}} | cut -d'/' -f1 | tr '[:upper:]' '[:lower:]')
