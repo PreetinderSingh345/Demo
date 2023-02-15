@@ -50,4 +50,4 @@ jobs:
     - name: Push Docker Image
       run: |
         docker tag ${{ env.IMAGE_NAME }} docker.pkg.github.com/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:${{ env.TAG }}
-    docker push docker.pkg.github.com/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:${{ env.TAG }}
+        docker push docker.pkg.github.com/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:${{ env.TAG }}
